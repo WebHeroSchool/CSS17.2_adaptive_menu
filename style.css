@@ -45,21 +45,25 @@
   top: 13px;
 }
 
-.icon__item:nth-child(3) {
+.icon__item:last-child {
   top: 26px;
 }
 
 @media screen and (max-width: 999px) {
+  .header {
+    position: relative;
+  }
+
   .icon {
     display: inline-block;
   }
 
   .links {
-    position: fixed;
+    position: absolute;
     display: none;
+    left: 0;
     top: 0;
     right: 0;
-    left: 0;
     margin-top: 52px;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
@@ -72,12 +76,16 @@
     text-align: center;
     color: #fff;
   }
+
+  .icon:focus {
+    outline: none;
+  }
   
-  .icon:hover {
-    opacity: .6;
+  .icon:focus ~ .links {
+    display: block;
   }
 
-  .icon:hover ~ .links {
-    display: block;
+  .links__item:hover {
+    font-weight: bold;
   }
 }
